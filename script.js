@@ -1,9 +1,3 @@
-function generatePassword
-   var promptInput-prompt('type something in here')
-var confirmInput -confirm('ok means yes, and cancel means no')
-alert('this is just an alert')
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -15,31 +9,36 @@ function writePassword() {
     passwordText.value = password;
 }
 function generatePassword() {
-    var passwordStr = '';
-    var password = [];
+
+    var password = '';
     var lengthInput = prompt('choose a length between 8 and 126 characters');
     var specialCharInput = confirm('Do you want to use special Characters');
     var lowercaseInput = confirm('Do you want to use lowercase letters');
     var uppercaseInput = confirm('Do you want to use uppercase letter');
     var numbersInput = confirm('Do you want to use numbers');
+    var output = []
 
     if (specialCharInput === true) {
-        password + - '!@#$%^&*()'
+        password += '!@#$%^&*()'
     }
     if (lowercaseInput === true) {
-        password + - 'qwertyuiopasdfghjklzxcvbnm';
+        password += 'qwertyuiopasdfghjklzxcvbnm';
     }
     if (uppercaseInput === true) {
-        password + - 'QWERTYUIOPASDFGHJKLZXCVBNM'
+        password += 'QWERTYUIOPASDFGHJKLZXCVBNM'
     }
-    if (nubmersInput === true) {
-        password + - '1234567890'
+    if (numbersInput === true) {
+        password += '1234567890'
     }
 
-    for (var i - 0; i < lengthInput; i++) {
-        password.push(randomCharacter)
+    for (var i = 0; i < lengthInput; i++) {
+        output.push(password[Math.floor(Math.random() * password.length)])
+
     }
     console.log(password);
+    console.log(output);
+
+    return output.join('');
 }
 
 // Add event listener to generate button
